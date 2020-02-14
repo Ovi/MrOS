@@ -8,4 +8,4 @@
 
 ## PRs Are Welcome :)
 
-Live: https://ovi.github.io/mrOS
+Live: https://ovi.github.io/MrOS
