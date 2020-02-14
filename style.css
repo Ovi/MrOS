@@ -1,0 +1,553 @@
+/* -------------------------
+
+General Styling ...
+
+---------------------------*/
+
+/* Hiding outlines from inout number and buttons */
+button,
+button:focus,
+button:active,
+button:hover,
+input,
+input:focus {
+	outline: none;
+	box-shadow: none !important;
+	font-family: 'Open Sans', sans-serif;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button,
+input[type='time']::-webkit-inner-spin-button,
+input[type='time']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	/* appearance: none; */
+	margin: 0;
+	box-shadow: none !important;
+	font-family: 'Open Sans', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.hide {
+	display: none;
+}
+
+/* Starting Windows */
+#starting-win {
+	position: fixed;
+	background: #000;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	text-align: center;
+}
+
+#starting-win img {
+	position: relative;
+	top: 22%;
+	width: 150px;
+}
+
+#loader {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: #267ed7;
+}
+
+/* Loader using CSS */
+.ring {
+	visibility: hidden;
+	position: absolute;
+	top: 400px;
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	left: 48%;
+	overflow: visible;
+	margin-top: 12px;
+}
+
+.ring .indeterminate-ring {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	opacity: 0;
+	transform: rotate(225deg);
+	-o-animation-name: indeterminate-progress-ring;
+	-moz-animation-name: indeterminate-progress-ring;
+	-webkit-animation-name: indeterminate-progress-ring;
+	animation-name: indeterminate-progress-ring;
+	-o-animation-duration: 4.4s;
+	-moz-animation-duration: 4.4s;
+	-webkit-animation-duration: 4.4s;
+	animation-duration: 4.4s;
+	-o-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-o-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+.ring .indeterminate-ring::after {
+	/* background-color: #0078D7; */
+	background-color: white;
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	content: '';
+	left: 8%;
+	top: 8%;
+}
+
+.ring .indeterminate-ring.indicator-1 {
+	-o-animation-delay: 0.96s;
+	-moz-animation-delay: 0.96s;
+	-webkit-animation-delay: 0.96s;
+	animation-delay: 0.96s;
+}
+
+.ring .indeterminate-ring.indicator-2 {
+	-o-animation-delay: 0.19s;
+	-moz-animation-delay: 0.19s;
+	-webkit-animation-delay: 0.19s;
+	animation-delay: 0.19s;
+}
+
+.ring .indeterminate-ring.indicator-3 {
+	-o-animation-delay: 0.38s;
+	-moz-animation-delay: 0.38s;
+	-webkit-animation-delay: 0.38s;
+	animation-delay: 0.38s;
+}
+
+.ring .indeterminate-ring.indicator-4 {
+	-o-animation-delay: 0.58s;
+	-moz-animation-delay: 0.58s;
+	-webkit-animation-delay: 0.58s;
+	animation-delay: 0.58s;
+}
+
+.ring .indeterminate-ring.indicator-5 {
+	-o-animation-delay: 0.77s;
+	-moz-animation-delay: 0.77s;
+	-webkit-animation-delay: 0.77s;
+	animation-delay: 0.77s;
+}
+
+@-webkit-keyframes indeterminate-progress-ring {
+	0% {
+		transform: rotate(200deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	7% {
+		transform: rotate(345deg);
+		animation-timing-function: linear;
+	}
+	30% {
+		transform: rotate(455deg);
+		animation-timing-function: ease-in-out;
+	}
+	40% {
+		transform: rotate(760deg);
+		animation-timing-function: linear;
+	}
+	70% {
+		transform: rotate(895deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	73% {
+		transform: rotate(955deg);
+		animation-timing-function: ease-out;
+		opacity: 0;
+	}
+	74% {
+		transform: rotate(985deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(1005deg);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes indeterminate-progress-ring {
+	0% {
+		transform: rotate(200deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	7% {
+		transform: rotate(345deg);
+		animation-timing-function: linear;
+	}
+	30% {
+		transform: rotate(455deg);
+		animation-timing-function: ease-in-out;
+	}
+	40% {
+		transform: rotate(760deg);
+		animation-timing-function: linear;
+	}
+	70% {
+		transform: rotate(895deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	73% {
+		transform: rotate(955deg);
+		animation-timing-function: ease-out;
+		opacity: 0;
+	}
+	74% {
+		transform: rotate(985deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(1005deg);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes indeterminate-progress-ring {
+	0% {
+		transform: rotate(200deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	7% {
+		transform: rotate(345deg);
+		animation-timing-function: linear;
+	}
+	30% {
+		transform: rotate(455deg);
+		animation-timing-function: ease-in-out;
+	}
+	40% {
+		transform: rotate(760deg);
+		animation-timing-function: linear;
+	}
+	70% {
+		transform: rotate(895deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	73% {
+		transform: rotate(955deg);
+		animation-timing-function: ease-out;
+		opacity: 0;
+	}
+	74% {
+		transform: rotate(985deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(1005deg);
+		opacity: 0;
+	}
+}
+
+@keyframes indeterminate-progress-ring {
+	0% {
+		transform: rotate(200deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	7% {
+		transform: rotate(345deg);
+		animation-timing-function: linear;
+	}
+	30% {
+		transform: rotate(455deg);
+		animation-timing-function: ease-in-out;
+	}
+	40% {
+		transform: rotate(760deg);
+		animation-timing-function: linear;
+	}
+	70% {
+		transform: rotate(895deg);
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	73% {
+		transform: rotate(955deg);
+		animation-timing-function: ease-out;
+		opacity: 0;
+	}
+	74% {
+		transform: rotate(985deg);
+		opacity: 0;
+	}
+	100% {
+		transform: rotate(1005deg);
+		opacity: 0;
+	}
+}
+
+/* -------------------------
+
+Body Starts ...
+
+---------------------------*/
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+}
+
+/* Right Click Menu */
+#body-rmenu {
+	position: absolute;
+	background: #f2f2f2;
+	width: 200px;
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+#body-rmenu li {
+	background: inherit;
+	width: 200px;
+	font-size: 0.7em;
+	padding: 5px 10px;
+	list-style: none;
+	color: black;
+	transition: all 0.1s;
+	margin: 5px 0;
+}
+
+#body-rmenu li:hover {
+	background: #91c9f7;
+}
+
+#sub-menu {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: -100px;
+	background: #f2f2f2;
+	width: 120px;
+	font-size: 1.4em;
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#sub-menu li {
+	width: 120px;
+}
+
+#blaah:hover #sub-menu {
+	display: block;
+}
+
+#main {
+	padding-top: 5px;
+	background: url('img/wallpapers/1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+#main .desktop-item {
+	padding: 10px;
+	height: auto;
+	margin-bottom: 10px;
+	width: 85px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+#main .desktop-item:hover {
+	cursor: default;
+}
+
+#main .desktop-item img {
+	width: 80%;
+}
+
+#main .desktop-item p {
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px 2px black, 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
+	font-size: 0.9em;
+	margin-top: 5px;
+}
+
+/* All the tabs defaut styling */
+#tab,
+#tab-calc,
+#tab-todo {
+	display: none;
+	position: absolute;
+	top: 45px;
+	left: 80px;
+	z-index: 9;
+	background-color: #f1f1f1;
+	width: 400px;
+	border: 1px solid #d3d3d3;
+	padding: 50px 5px 40px 5px;
+	font-size: 0.8em;
+	box-shadow: 0 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Tab Header */
+.tab-header {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	top: 0;
+	right: 0;
+	padding: 10px 5px;
+	/* cursor: move; */
+	z-index: 10;
+	background-color: #2196f3;
+	color: #fff;
+}
+
+/* Tab Close Button */
+.tab-header i {
+	display: block;
+	height: 100%;
+	width: 40px;
+	padding: 10px 0 0 12px;
+	font-size: 1.3em;
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: white;
+	background: rgba(255, 0, 0, 0);
+	transition: all 0.2s;
+}
+
+.tab-header i:hover {
+	background: rgba(255, 0, 0, 0.8);
+	cursor: default;
+}
+
+/* Tab Footer */
+#tab-footer {
+	position: absolute;
+	width: 100%;
+	height: 25px;
+	bottom: 0;
+	right: 0;
+	padding: 4px;
+	z-index: 10;
+	background-color: rgba(202, 202, 202, 0.5);
+	color: rgb(0, 0, 0);
+}
+
+/* To disbale user's text selection */
+.disable-select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* -------------------------
+
+Bottom StartBar Part ...
+
+---------------------------*/
+
+#start-bar {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	height: 40px;
+	width: 100%;
+	background: rgba(0, 90, 90, 0.9);
+}
+
+/* Windows icon on the left side */
+#start-bar .win-icon {
+	position: absolute;
+	height: 100%;
+	width: 45px;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0) url('img/icon_windows.png') no-repeat;
+	background-size: 20px;
+	background-position: 10px;
+	opacity: 1;
+	transition: all 0.3s;
+}
+
+#start-bar .win-icon:hover {
+	opacity: 1;
+	background: rgb(0, 59, 59) url('img/icon_windows.png') no-repeat;
+	background-size: 20px;
+	background-position: 10px;
+}
+
+/* Windows clock on the right side */
+#clock {
+	position: absolute;
+	text-align: center;
+	font-size: 0.7em;
+	color: white;
+	height: 100%;
+	width: auto;
+	top: 0;
+	right: 5px;
+	line-height: 17px;
+	padding: 4px 10px 0;
+	opacity: 0.9;
+	transition: all 0.3s;
+}
+
+#clock:hover {
+	background: rgb(0, 59, 59);
+	cursor: default;
+}
+
+/* Logout and Cancel options on click on windows button */
+#logOut {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 999;
+}
+
+#logout-btn {
+	height: auto;
+	width: 100%;
+	min-width: 200px;
+	position: absolute;
+	left: 0;
+	top: 30%;
+	text-align: center;
+}
+
+#logout-btn button,
+#logout-btn a {
+	text-decoration: none;
+	background: rgb(255, 255, 255);
+	margin-top: 20px;
+	padding: 10px 20px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 1.2em;
+}

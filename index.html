@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Mr.OS</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Oxygen+Mono"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css/calc.css" />
+		<link rel="stylesheet" href="css/todo.css" />
+	</head>
+	<body class="disable-select">
+		<div id="starting-win">
+			<!-- <div style="width:100%; height:100%; text-align:center; background:black;" id="black-screen"></div> -->
+			<img src="img/icon_windows_blue.png" alt="Starting Windows" /><br />
+			<div class="ring">
+				<div class="indicator-1  indeterminate-ring"></div>
+				<div class="indicator-2  indeterminate-ring"></div>
+				<div class="indicator-3  indeterminate-ring"></div>
+				<div class="indicator-4  indeterminate-ring"></div>
+				<div class="indicator-5  indeterminate-ring"></div>
+			</div>
+		</div>
+		<div id="loader">
+			<i
+				class="fa fa-cog fa-spin fa-3x fa-fw"
+				style="color: rgba(162, 162, 162, 0.5)"
+			></i>
+			<span class="sr-only">Loading...</span>
+		</div>
+
+		<div id="main" contextmenu="alert('Not Allowed, Sorry!')">
+			<!-- This PC -->
+			<div
+				title="This PC"
+				class="desktop-item"
+				ondblclick="$('#tab').show(); $('.desktop-item').css('background-color','transparent');"
+				onmouseover="hoveredItem(this)"
+				onmouseout="hoveredOut(this)"
+				onclick="selectedItem(this)"
+			>
+				<img src="img/this-pc.png" alt="This PC" />
+				<p id="name">This PC</p>
+			</div>
+
+			<!-- Calculator -->
+			<div
+				title="Calculator"
+				class="desktop-item"
+				ondblclick="$('#tab-calc').show(); $('.desktop-item').css('background-color','transparent');"
+				onmouseover="hoveredItem(this)"
+				onmouseout="hoveredOut(this)"
+				onclick="selectedItem(this)"
+			>
+				<img src="img/calculator.png" alt="Calculator" />
+				<p>Calculator</p>
+			</div>
+
+			<!-- Todo App -->
+			<div
+				title="Mr.Todo"
+				class="desktop-item"
+				ondblclick="$('#tab-todo').show(); $('.desktop-item').css('background-color','transparent');"
+				onmouseover="hoveredItem(this)"
+				onmouseout="hoveredOut(this)"
+				onclick="selectedItem(this)"
+			>
+				<img src="img/todo.png" alt="ToDo App" />
+				<p>Tasks (Todo)</p>
+			</div>
+		</div>
+
+		<div id="start-bar">
+			<div
+				title="Option to logout or close the tab"
+				class="win-icon"
+				onclick="$('#logOut').fadeIn(500);"
+			></div>
+			<div title="Current time and date according to your System" id="clock">
+				<i
+					class="fa fa-spinner fa-spin fa-3x fa-fw"
+					style="color: rgba(255, 255, 255, 0.5)"
+				></i>
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+
+		<div id="tab">
+			<div id="tab-header" class="tab-header">
+				This PC <i class="fa fa-times" onclick="$('#tab').hide()"></i>
+			</div>
+			<p>This tab is current under construction...</p>
+			<br />
+			<p>You can come back later if you want to...</p>
+			<br />
+			<p>
+				Koi Suggestion Deni Ho To De Dena...
+			</p>
+			<div id="tab-footer">
+				0 folders, 0 files, 0.00 KBs
+			</div>
+		</div>
+		<div id="tab-calc">
+			<div id="tab-calc-header" class="tab-header">
+				Calculator
+				<i class="fa fa-times" onclick="$('#tab-calc').hide(); cls();"></i>
+			</div>
+			<div id="result">0</div>
+			<button onclick="cls();">AC</button>
+			<button onclick="num(this);">7</button>
+			<button onclick="num(this);">8</button>
+			<button onclick="num(this);">9</button>
+			<button onclick="calc(this);">/</button>
+			<button onclick="num(this);">4</button>
+			<button onclick="num(this);">5</button>
+			<button onclick="num(this);">6</button>
+			<button onclick="calc(this);">*</button>
+			<button onclick="num(this);">1</button>
+			<button onclick="num(this);">2</button>
+			<button onclick="num(this);">3</button>
+			<button onclick="calc(this);">-</button>
+			<button onclick="num(this);">0</button>
+			<button onclick="num(this);">.</button>
+			<button onclick="total();">=</button>
+			<button onclick="calc(this);">+</button>
+		</div>
+		<div id="tab-todo">
+			<div id="tab-todo-header" class="tab-header">
+				Mr.Todo <i class="fa fa-times" onclick="$('#tab-todo').hide();"></i>
+			</div>
+			<div id="todo">
+				<header>
+					<span id="day">Day,</span> <span id="date">Date</span> <br />
+					<span id="tasksTotal"
+						><span id="tasksTotalN"></span><small> Tasks</small></span
+					>
+					<span id="month">Month</span>
+				</header>
+				<div
+					id="plus"
+					onclick="$('#add-box-cover').fadeIn(500);$('#add-box').fadeIn(500);"
+				>
+					+
+				</div>
+				<div id="tasks">
+					<!-- All the tasks come here -->
+				</div>
+				<div
+					style="position:absolute; top:120px; width:350px; text-align:center; z-index:1;"
+				>
+					No Task...
+				</div>
+				<button id="clear-all" onclick="clrChecked();">
+					Clear All Done Tasks !
+				</button>
+				<div id="add-box-cover"></div>
+				<div id="add-box">
+					<button
+						id="close"
+						onclick="$('#add-box-cover').fadeOut(500);$('#add-box').fadeOut(500);"
+					>
+						X
+					</button>
+					<h3>add</h3>
+					<h2>new task</h2>
+					<br />
+					<span id="err"></span>
+					<br />
+					<input
+						type="text"
+						id="new-todo"
+						maxlength="26"
+						placeholder="What?"
+						onfocus="document.getElementById('err').innerHTML = ''; this.style.borderBottom = '2px solid rgba(105, 105, 105, .2)';"
+					/>
+					<small style="text-align:center; display:block;"
+						>(Max 26 Charactor including spaces)</small
+					>
+					<br />
+					<input
+						type="text"
+						id="new-todo-time"
+						maxlength="8"
+						placeholder="When?"
+						onfocus="if(this.value == '') {this.value = '9:00 PM'}; document.getElementById('err').innerHTML = ''; this.style.borderBottom = '2px solid rgba(105, 105, 105, .2)';"
+					/>
+					<button id="adder" onclick="addTodo();">Add!</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- The Logout (Windows Button) Part -->
+		<div id="logOut">
+			<div id="logout-btn">
+				<button
+					onClick="$('#logOut').fadeOut();localStorage.clear();alert('success');window.location.reload()"
+				>
+					Logout
+				</button>
+				<button onclick="self.close()">Close Window (No-Logout)</button>
+				<br />
+				<br />
+				<a href="https://muhammadovi.com" target="_blank">
+					Contact Developer
+				</a>
+				<br />
+				<button onclick="$('#logOut').fadeOut(500);">Cancel</button>
+			</div>
+		</div>
+
+		<!-- Right Click Options -->
+		<div class="hide" id="body-rmenu">
+			<ul>
+				<li id="blaah">
+					Change Background
+					<span style="float: right;"><i class="fa fa-arrow-right"></i></span>
+					<ul id="sub-menu">
+						<li onclick="changeBg(1)">Flower 01</li>
+						<li onclick="changeBg(2)">Flower 02</li>
+						<li onclick="changeBg(3)">Flower 03</li>
+						<li onclick="changeBg(6)">Flower 04</li>
+						<li onclick="changeBg(7)">Green Leaf</li>
+						<li onclick="changeBg(4)">Mountain</li>
+						<li onclick="changeBg(9)">UnderWater</li>
+						<li onclick="changeBg(8)">Sea</li>
+						<li onclick="changeBg(5)">Night</li>
+					</ul>
+				</li>
+				<li
+					onclick="alert('Mr.OS is a web-based operating system made using HTML, CSS, Javascript and a little help of JQuery \nAnd This is made by me :D (Ovi) \nHave a great day!')"
+				>
+					About Mr.OS
+				</li>
+			</ul>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="script.js"></script>
+		<script src="js/calc.js"></script>
+		<script src="js/todo.js"></script>
+	</body>
+</html>

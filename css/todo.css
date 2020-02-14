@@ -1,0 +1,363 @@
+#tab-todo *:not(i) {
+	font-family: 'Quicksand', sans-serif;
+}
+
+#tab-todo {
+	display: none;
+	position: absolute;
+	top: 45px;
+	left: 80px;
+	z-index: 9;
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	font-size: 0.8em;
+	box-shadow: 0 0 2px 5px rgba(0, 0, 0, 0.2);
+	padding: 0;
+	padding-top: 40px;
+	width: 360px;
+	height: 500px;
+}
+
+#todo {
+	position: relative;
+	height: 455px;
+	width: 100%;
+	margin: 0 auto;
+	background: white;
+	color: black;
+	padding-bottom: 50px;
+}
+
+#todo header {
+	background: #fbfbff;
+	width: 100%;
+	height: 100px;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	padding: 20px 25px;
+	border-bottom: 1px solid #e0e9f1;
+}
+
+#todo header #day {
+	color: #666afb;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+#todo header #date {
+	color: #666afb;
+	font-size: 1.6em;
+}
+
+#todo header #tasksTotal {
+	float: right;
+	display: block;
+	margin: -20px 20px 0 0;
+	font-weight: bold;
+	color: #a8a9ca;
+}
+
+#todo header #tasksTotal small {
+	font-weight: normal;
+}
+
+#todo header #month {
+	color: #a8a9ca;
+}
+
+#todo #plus {
+	position: absolute;
+	right: 20px;
+	top: 75px;
+	height: 50px;
+	width: 50px;
+	background: rgb(251, 105, 105);
+	border-radius: 50px;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	font-size: 35px;
+	cursor: pointer;
+	transition: all 0.2s;
+	z-index: 3;
+}
+
+#todo #plus:hover {
+	background: rgb(251, 65, 65);
+	transform: scale(1.1);
+}
+
+#todo #tasks {
+	height: 325px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+#todo #tasks p {
+	position: relative;
+	padding-left: 50px;
+	padding-right: 50px;
+	line-height: 70px;
+	font-size: 1.2em;
+	background: rgb(240, 240, 240);
+	height: 75px;
+	width: 100%;
+	z-index: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+#todo #tasks p:nth-child(odd) {
+	background: rgb(255, 255, 255);
+	border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+#todo #tasks p .time {
+	position: absolute;
+	right: 5px;
+	top: 2px;
+	font-size: 0.7em;
+	color: rgb(128, 128, 128);
+}
+
+#todo button#clear-all {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding: 5px;
+	background: rgb(251, 105, 105);
+	border: none;
+	color: rgb(255, 255, 255);
+	letter-spacing: 0.08em;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+#todo button#clear-all:active,
+#todo button#clear-all:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+	background: rgb(251, 65, 65);
+}
+
+#todo button#clear-all:active {
+	bottom: -1px;
+}
+
+#add-box-cover {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 4;
+}
+
+#todo #add-box {
+	display: none;
+	position: absolute;
+	top: 50px;
+	right: 10%;
+	z-index: 5;
+	border-radius: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+	height: auto;
+	padding: 25px;
+	padding-bottom: 50px;
+	width: 80%;
+	max-width: 360px;
+	margin: 1em auto;
+	background: white;
+	color: black;
+}
+
+#todo #add-box button#close {
+	position: absolute;
+	top: -15px;
+	right: -10px;
+	width: 30px;
+	padding: 5px;
+	font-size: 1.2em;
+	background: rgb(251, 105, 105);
+	border: none;
+	border-radius: 50px;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+	transition: all 0.1s;
+	z-index: 6;
+}
+
+#todo #add-box button#close:hover {
+	transform: scale(1.1);
+}
+
+#todo #add-box button#close:active {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+#todo #add-box h2,
+#todo #add-box h3 {
+	text-align: center;
+}
+
+#todo #add-box h3 {
+	color: #8ca6db;
+}
+
+#todo #add-box h2 {
+	color: #b993d6;
+}
+
+#todo #add-box #err {
+	font-size: 0.9em;
+	font-weight: bold;
+	color: red;
+	display: block;
+	position: absolute;
+	top: 2px;
+	right: 0;
+	text-align: center;
+	width: 100%;
+}
+
+#todo #add-box #new-todo,
+#todo #add-box #new-todo-time {
+	text-align: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 1em;
+	border: transparent;
+	border-bottom: 2px solid rgba(105, 105, 105, 0.2);
+	transition: all 0.1s;
+}
+
+#todo #add-box button#adder {
+	position: absolute;
+	padding: 15px;
+	width: 70px;
+	height: 70px;
+	font-size: 1em;
+	background: rgb(251, 105, 105);
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-shadow: 0px 0px 2px rgb(56, 56, 56);
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+	transition: all 0.1s;
+	border-radius: 50px;
+	bottom: -40px;
+	left: 110px;
+}
+
+#todo #add-box button#adder:hover {
+	background: rgb(251, 65, 65);
+}
+
+#todo #add-box button#adder:active {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+	bottom: -41px;
+}
+
+/* The container for checkbox of tasks */
+.container {
+	position: relative;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 5px;
+	left: -35px;
+	height: 20px;
+	width: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.container input:checked ~ .checkmark {
+	border-color: transparent;
+	border-radius: 50px;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 5px;
+	top: 2px;
+	width: 4px;
+	height: 8px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* width */
+#todo #tasks::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+#todo #tasks::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+#todo #tasks::-webkit-scrollbar-thumb {
+	background: rgba(145, 145, 145, 0.3);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+#todo #tasks::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/* don't let user select the text of done tasks */
+.done {
+	text-decoration: line-through;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
